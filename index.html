@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html><head><title>Phyllotaxis</title></head><body>
+	
+	
+		<h1>Phyllotaxis</h1>
+
+		<p>
+		Phyllotaxis, the regular arrangement of leaves, petals or other elements of plants,
+		is very common in plants. There is a large literature on the subject which spans several
+		centuries, the references at the end of this document point out some of the most influential
+		works.
+		</p>
+
+		<p>
+		The present paper is a simple attempt to model the biological growth processes using basic
+		physical principles. The hope is to see phyllotaxis emerge as a result of the numerical simulation.
+		The main source for ideas is Douady and Couder's breakthrough 1992 paper which was the first
+		to propose a model for growth which corresponded to observed patterns in real plants, for previous
+		work had been almost entirely descriptive of these patterns.
+		</p>
+
+		<p>
+		My method is to explain the numerical experiments I tried - including the failed ones - in order
+		to get to an understanding of how phyllotaxis arises.
+		</p>
+
+		<h1>First Steps</h1>
+
+		<p>
+		Before I read Douady and Couder's paper I set up the following model. Elements were born every
+		<i>T</i> time units at a random point in a small circle of diameter 0.001 centred at the origin.
+		They were subjected to a constant radial force <i>c</i>.
+		All elements also repelled one another with a force acting
+		to an inverse square law with constant of proportionality <i>k</i>. The elements moved in a viscous
+		medium, so there motion was resisted with a force proportional to their velocity, with factor <i>R</i>.
+		</p>
+
+		<p>
+		If <i>k</i> is zero then the equations can be solved exactly since the elements only move radially.
+		If <i>R</i> and <i>c</i> are also zero then the
+		solution is a collection of elements that don't move - they just stay where they were born.
+		</p>
+
+		<p>
+		If <i>k</i> and <i>R</i> are set to zero, and <i>c</i> is non-zero (positive) then the elements
+		move radially with distance <i>ct<sup>2</sup>/2</i> from their
+		starting point. That is they accelerate rapidly from their birth site. Introducing friction, by setting
+		<i>R</i> to be positive, causes the elements to be approximately a distance <i>ct</i> from their birth site.
+		That is, the value of <i>R</i> is not significant in prediciting the longer-term dynamics.
+		By rendering the elements as circles whose radii are proportional to their age should result in a plant
+		head with no gaps.
+		</p>
+
+		<p>
+		By finally introducing repulsive forces between elements (positive <i>k</i>), the idea was that
+		elements would rearrange themselves into a pattern that minimised the energy of the configuration.
+		While some parameter settings did result in spirals (examples...) the model did not reflect growing
+		plants very well at all since the configuration was highly sensitive to the initial position of the
+		new element.
+		</p>
+
+		<p>
+		If <i>c</i> is too large compared to the effect of <i>k</i> then there is little interaction between elements - and they just move away from
+		the centre in random directions determined solely by birth site. Equally if the birth rate <i>T</i>
+		is too large there is little interaction since previous elements are too far away to significantly
+		affect the new element.
+		</p>
+		
+		<p>
+		If <i>k</i> is too large then ...
+		</p>
+
+		<h1>Reproducing Douady and Couder's Work</h1>
+
+		<p>
+		After trying my own experiments I then looked at using the model Douady and Couder worked on.
+		</p>
+
+		<p>
+		Elements are born every <i>T</i> time units on the circumference of a circle of radius <i>R<sub>0</sub></i>
+		with initial velocity <i>V<sub>0</sub></i>. The point on the circumference where they are born is determined
+		by minimising the energy function due to the other elements. Elements move radially according to
+		<i>V(r)</i> = <i>V<sub>0</sub>r / R<sub>0</sub></i>,
+		i.e <i>r(t)</i> = <i>R<sub>0</sub>e<sup>V<sub>0</sub>t / R<sub>0</sub></sup></i>.
+		</p>
+
+	
+</body></html>

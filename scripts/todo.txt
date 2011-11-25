@@ -1,0 +1,9 @@
+TODO
+
+-2. Check timing in DouadyCouderPlant.newElement loop
+-1. Try to reproduce D&C's graph: iterate over theta, and G.
+
+0. Allow values to be specified mid-run
+1. Make	the charting piece more self-contined. The grapher and plotter should move to tournesol.
+2. See C:\Apps\Python\Doc\ref\function.html on how to avoid using globals!
+3. Tidy up code.
